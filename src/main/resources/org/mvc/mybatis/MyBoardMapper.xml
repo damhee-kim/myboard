@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mvc.mybatis.MyBoardMapper">
+	<select id="getList" resultType="org.mvc.bean.MyBoardDTO">
+        <![CDATA[
+        select * from(
+            select num,writer,email,subject,passwd,reg_date,ref,re_step,re_level,content,ip,readcount,rownum r from(
+                select * from tbl_myBoard order by ref desc, re_step asc)
+            order by ref desc, re_step asc)
+        where r >= #{start} and r <= #{end}
+        ]]>
+    </select>
+	
+	<insert id="insert" parameterType="org.mvc.bean.MyBoardDTO">
+		insert into tbl_myboard(num,subject, content, writer,email,passwd, ref, re_step, re_level, ip)
+			values(seq_myboard.nextval,#{subject}, #{content},#{writer},#{email},#{passwd}, #{ref}, #{re_step}, #{re_level}, #{ip})
+	</insert>
+	
+	<select id="read" resultType="org.mvc.bean.MyBoardDTO">
+		select * from tbl_myboard where num = #{num}
+	</select>
+	
+	<select id="contentCount" resultType="Integer">
+		select count(*) from tbl_myboard
+	</select>
+
+	<select id="contentMaxNum" resultType="Integer">
+		select max(num) from tbl_myboard
+	</select>
+	
+	<update id="re_stepUpdate">
+		update board set re_step = re_step+1 where ref= #{ref} and re_step> #{re_step}
+	</update>
+	
+	<update id="readCount" parameterType="org.mvc.bean.MyBoardDTO">
+		update tbl_myboard set
+			readcount = readcount+1
+				where num = #{num}
+	</update>
+	
+	<update id="update" parameterType="org.mvc.bean.MyBoardDTO">
+		update tbl_myboard set
+			writer = #{writer}, email = #{email}, subject = #{subject}, content = #{content}, passwd = #{passwd}
+			where num = #{num} and passwd = #{passwd}
+	</update>
+	
+	<delete id="delete">
+		delete tbl_myboard where num = #{num} and passwd = #{passwd}
+	</delete>
+	
+	
+	
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mvc.mybatis.MyMemberMapper">
+
+	<insert id="insertMember">
+		insert into tbl_mymember(id,passwd,name,jumin1,jumin2,email,blog)
+			values(#{id}, #{passwd}, #{name}, #{jumin1}, #{jumin2}, #{email}, #{blog})
+	</insert>
+	
+	<select id="userCheck" resultType="org.mvc.bean.MyMemberDTO">
+		select * from tbl_mymember
+			where id = #{id} and passwd = #{passwd}
+	</select>
+	
+	<select id="loginCheck" resultType="int">
+		select count(*) from tbl_mymember
+			where id = #{id} and passwd = #{passwd}
+	</select>
+	
+	
+	<select id="getMember" resultType="org.mvc.bean.MyMemberDTO">
+		select * from tbl_mymember
+			where id = #{id}
+	</select>
+	
+	<update id="updateMember" parameterType="org.mvc.bean.MyMemberDTO">
+		update tbl_mymember set
+			passwd = #{passwd},
+			name = #{name},
+			email = #{email},
+			blog = #{blog}
+			where id = #{id}
+	</update>
+	
+	<delete id="deleteMember">
+		delete tbl_mymember
+			where id = #{id} and passwd = #{passwd}
+	</delete>
+	
+	<select id="idCheck" resultType="int">
+		select count(*) from tbl_mymember
+			where id = #{id}
+	</select>
+</mapper>
