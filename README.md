@@ -1,1 +1,1 @@
-# myboard-spring
+# myboard
