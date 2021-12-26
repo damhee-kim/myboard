@@ -75,7 +75,7 @@
       			 		onclick="document.location.href='/myboard/write?num=${myBoardDTO.num}&ref=${myBoardDTO.ref}&re_step=${myBoardDTO.re_step}&re_level=${myBoardDTO.re_level}'">
 	  			 	&nbsp;
       	 			<input type="button" value="글목록" 
-      	 				onclick="document.location.href='/myboard/list'">
+      	 				onclick="document.location.href='/myboard/list?num=${myBoardDTO.num}&pageNum=${pageNum}'">
     			</td>
   			</tr>
 		</table>    

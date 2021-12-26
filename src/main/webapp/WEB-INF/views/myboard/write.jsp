@@ -16,7 +16,7 @@
 		<b>글작성 페이지</b>
 	</center>
 	<br>
-	<form method="post" name="writeform" action="writePro.jsp" onsubmit="return writeSave()">
+	<form method="post" name="writeform" action="/myboard/writePro" onsubmit="return writeSave()">
 		<input type="hidden" name="num" value="${myBoardDTO.num}" />
 		<input type="hidden" name="ref" value="${myBoardDTO.ref}" />
 		<input type="hidden" name="re_step" value="${myBoardDTO.re_step}" />
@@ -77,7 +77,7 @@
  				<td colspan=2 bgcolor="${value_c}" align="center"> 
 				  	<input type="submit" value="글쓰기" >  
   					<input type="reset" value="다시작성">
-  					<input type="button" value="목록보기" OnClick="window.location='/myboard/list'">
+  					<input type="button" value="목록보기" OnClick="window.location='pageNum=${pageNum}'">
 				</td>
 			</tr>
 		</table>     

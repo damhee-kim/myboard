@@ -28,15 +28,16 @@
 	</table>
 
 	<c:if test="${list == null}">
-		<table width="700" border="1" cellpadding="0" cellspacing="0">
+		<table style="border:1px solid; width:700px; text-align:center; margin:auto">
 			<tr>		
-    			<td align="center">
+    			<td>
     				게시판에 저장된 글이 없습니다.
-    			</td>
+    			</td> 
     		</tr>
 
 		</table>
 	</c:if>
+
 
 	<c:if test="${list != null}">
 		<table border="1" width="700" cellpadding="0" cellspacing="0" align="center"> 
@@ -56,11 +57,11 @@
 				</td>
     			<td align="center" width="250" >
 			<c:if test="${myBoardDTO.re_level > 0}" >
-					<img src="/resources/images/level.gif" width="${5 * myBoardDTO.re_level}" height="16">
+					<img src="/resources/images/level.png" width="${5 * myBoardDTO.re_level}" height="16">
 					<img src="/resources/images/re.gif">
 			</c:if>
 			<c:if test="${myBoardDTO.re_level == 0}">
-					<img src="/resources/images/level.gif" width="${5 * myBoardDTO.re_level}" height="16">
+					<img src="/resources/images/level.png" width="${5 * myBoardDTO.re_level}" height="16">
 			</c:if>
 					<a href="/myboard/readcount?num=${myBoardDTO.num}&pageNum=${pageNum}">
 						${myBoardDTO.subject}

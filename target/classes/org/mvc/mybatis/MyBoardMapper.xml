@@ -24,11 +24,11 @@
 		select * from tbl_myboard where num = #{num}
 	</select>
 	
-	<select id="contentCount" resultType="Integer">
+	<select id="contentCount" resultType="int">
 		select count(*) from tbl_myboard
 	</select>
 
-	<select id="contentMaxNum" resultType="Integer">
+	<select id="contentMaxNum" resultType="int">
 		select max(num) from tbl_myboard
 	</select>
 	
@@ -51,7 +51,5 @@
 	<delete id="delete">
 		delete tbl_myboard where num = #{num} and passwd = #{passwd}
 	</delete>
-	
-	
 	
 </mapper>

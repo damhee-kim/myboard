@@ -32,7 +32,7 @@
     			<td align=center bgcolor="${value_c}">
       				<input type="submit" value="글삭제" >
       				<input type="button" value="글목록" 
-       					onclick="document.location.href='list.jsp?pageNum=${pageNum}'">     
+       					onclick="document.location.href='/myboard/list?pageNum=${pageNum}'">     
    				</td>
  			</tr>  
 		</table> 
