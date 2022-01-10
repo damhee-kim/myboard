@@ -50,6 +50,10 @@ public class MyBoardController {
 			model.addAttribute("pageNum",pageNum);
 			model.addAttribute("count",count);
 		}
+		
+		number=count-(currentPage-1)*pageSize;
+		
+		
 		if (count > 0) {// 전체페이지 수를 연산
 	        int pageCount = count / pageSize + ( count % pageSize == 0 ? 0 : 1);
 	       			 // 글수 / 페이지 수 + (글수 % 페이지수 == 0 ? 0: 1);

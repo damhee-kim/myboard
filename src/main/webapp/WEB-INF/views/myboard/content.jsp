@@ -23,7 +23,7 @@
 	    		<td align="center" width="125" bgcolor="${value_c}">
 	    			글번호
 	    		</td>
-	    		<td align="center" width="125" align="center">
+	    		<td align="center" width="125" >
 		     		${myBoardDTO.num}
 		     	</td>
 	    		<td align="center" width="125" bgcolor="${value_c}">

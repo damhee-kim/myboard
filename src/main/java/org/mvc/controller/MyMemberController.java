@@ -63,7 +63,7 @@ public class MyMemberController {
 	@RequestMapping("modifyForm")
 	public String modifyForm(Model model, String pageNum, HttpSession session) {
 		model.addAttribute("pageNum", pageNum);
-		String id = (String)session.getAttribute("memId"); // session에서 id 를 꺼내는 것
+		String id = (String)session.getAttribute("memId"); 
 		model.addAttribute("myMemberDTO", service.getMember(id));
 		return "mymember/modifyForm";
 	}
@@ -71,7 +71,7 @@ public class MyMemberController {
 	@RequestMapping("modifyPro")
 	public String modifyPro(MyMemberDTO dto, String pageNum, Model model, HttpSession session) {
 		model.addAttribute("pageNum", pageNum);
-		String id = (String)session.getAttribute("memId"); // session에서 id 를 꺼내는 것
+		String id = (String)session.getAttribute("memId"); 
 		service.getMember(id);
 		model.addAttribute("myMemberDTO",service.updateMember(dto));
 		return "mymember/modifyPro";
